@@ -1,27 +1,49 @@
-# InputMasker
+# NgxInputMakser
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.6.
 
-## Development server
+### How to use
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```typescript
+@NgModule({
+  declarations: [
+    ...
+  ],
+  imports: [
+    ...
+    NgxInputMaskerModule,
+  ],
+  providers: [...],
+  bootstrap: [...]
+})
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
 
-## Build
+```html
+    <input
+         NgxInputMasker="&#10052;"
+         [customContainerSettings]="{}"
+         [customMaskSettings]="{}"
+        [containerClass] = 'maskerContainer'
+>
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+#####Inputs :
 
-## Running unit tests
+1. NgxInputMasker: [string]()
+2. customContainerSettings: [CSSStyleDeclaration]()
+2. customMaskSettings: [CSSStyleDeclaration]()
+4. containerClass: [string]()
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+####customContainerSettings
+These are the styles for the container of the div created ontop of the input field.
+any css styling that can be applied to a div can be applied here. 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Note: The div is outside of the angular scope
 
-## Further help
+####customMaskSettings
+These are the styles for special char created as a span element 
+Note: The span is outside of the angular scope
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ 

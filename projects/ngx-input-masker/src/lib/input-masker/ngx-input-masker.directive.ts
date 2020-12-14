@@ -1,13 +1,25 @@
-import {ChangeDetectorRef, Directive, ElementRef, EventEmitter, HostListener, Input, OnInit, Output} from '@angular/core';
+import {
+    ChangeDetectorRef,
+    Directive,
+    ElementRef,
+    EventEmitter,
+    HostListener,
+    Input,
+    OnChanges,
+    OnInit,
+    Output,
+    SimpleChanges
+} from '@angular/core';
 
 @Directive({
     // tslint:disable-next-line:directive-selector
     selector: '[NgxInputMasker]'
 })
-export class NgxInputMaskerDirective implements OnInit{
+export class NgxInputMaskerDirective implements OnInit, OnChanges{
     @Input('NgxInputMasker') maskCode = '';
     @Input() customContainerSettings: Partial<CSSStyleDeclaration> = {};
     @Input() customMaskSettings: Partial<CSSStyleDeclaration> = {};
+    @Input() containerClass?: string;
     @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
     container: HTMLDivElement;
 
@@ -27,6 +39,10 @@ export class NgxInputMaskerDirective implements OnInit{
 
     }
 
+  ngOnChanges(changes: SimpleChanges): void {
+        this.container.className = this.containerClass;
+  }
+
     updateBox(): void {
         this.container.innerHTML = '';
         const split = this.el.nativeElement.value.split('');
@@ -34,7 +50,6 @@ export class NgxInputMaskerDirective implements OnInit{
             const maskObject: HTMLSpanElement = document.createElement('span');
             maskObject.innerHTML = this.maskCode;
             // tslint:disable-next-line:forin
-
             for (const key in this.customMaskSettings) {
                 maskObject.style[key] = this.customMaskSettings[key];
             }
