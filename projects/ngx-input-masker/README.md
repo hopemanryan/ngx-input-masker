@@ -1,24 +1,54 @@
-# NgxInputMasker
+# NgxInputMakser
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.6.
 
-## Code scaffolding
+### How to use
 
-Run `ng generate component component-name --project ngx-input-masker` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-input-masker`.
-> Note: Don't forget to add `--project ngx-input-masker` or else it will be added to the default project in your `angular.json` file. 
+```typescript
+@NgModule({
+  declarations: [
+    ...
+  ],
+  imports: [
+    ...
+    NgxInputMaskerModule,
+  ],
+  providers: [...],
+  bootstrap: [...]
+})
 
-## Build
 
-Run `ng build ngx-input-masker` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
 
-## Publishing
+```html
+    <input
+         NgxInputMasker="&#10052;"
+         [customContainerSettings]="{}"
+         [customMaskSettings]="{}"
+        [containerClass] = 'maskerContainer'
+>
+```
 
-After building your library with `ng build ngx-input-masker`, go to the dist folder `cd dist/ngx-input-masker` and run `npm publish`.
+### Inputs :
 
-## Running unit tests
+1. NgxInputMasker: [string]()
+2. customContainerSettings: [CSSStyleDeclaration]()
+2. customMaskSettings: [CSSStyleDeclaration]()
+4. containerClass: [string]()
 
-Run `ng test ngx-input-masker` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Further help
+### customContainerSettings
+These are the styles for the container of the div created ontop of the input field.
+any css styling that can be applied to a div can be applied here. 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Note: The div is outside of the angular scope
+
+### customMaskSettings
+These are the styles for special char created as a span element 
+Note: The span is outside of the angular scope
+
+ 
+ 
+###  DEMO : 
+
+
+![alt text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif "Logo Title Text 1")

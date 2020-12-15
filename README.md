@@ -47,3 +47,8 @@ These are the styles for special char created as a span element
 Note: The span is outside of the angular scope
 
  
+ 
+###  DEMO : 
+
+
+![alt text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif "Logo Title Text 1")

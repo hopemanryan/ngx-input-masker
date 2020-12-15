@@ -2,7 +2,7 @@
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core')) :
     typeof define === 'function' && define.amd ? define('ngx-input-masker', ['exports', '@angular/core'], factory) :
     (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global['ngx-input-masker'] = {}, global.ng.core));
-}(this, (function (exports, i0) { 'use strict';
+}(this, (function (exports, core) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -313,7 +313,7 @@
             this.customContainerSettings = {};
             this.customMaskSettings = {};
             this.type = 'password';
-            this.valueChange = new i0.EventEmitter();
+            this.valueChange = new core.EventEmitter();
         }
         NgxInputMaskerDirective.prototype.onInput = function (event) {
             this.updateBox();
@@ -382,56 +382,38 @@
         };
         return NgxInputMaskerDirective;
     }());
-    NgxInputMaskerDirective.ɵfac = function NgxInputMaskerDirective_Factory(t) { return new (t || NgxInputMaskerDirective)(i0.ɵɵdirectiveInject(i0.ElementRef), i0.ɵɵdirectiveInject(i0.ChangeDetectorRef)); };
-    NgxInputMaskerDirective.ɵdir = i0.ɵɵdefineDirective({ type: NgxInputMaskerDirective, selectors: [["", "NgxInputMasker", ""]], hostBindings: function NgxInputMaskerDirective_HostBindings(rf, ctx) {
-            if (rf & 1) {
-                i0.ɵɵlistener("input", function NgxInputMaskerDirective_input_HostBindingHandler($event) { return ctx.onInput($event); });
-            }
-        }, inputs: { maskCode: ["NgxInputMasker", "maskCode"], customContainerSettings: "customContainerSettings", customMaskSettings: "customMaskSettings", containerClass: "containerClass", type: "type" }, outputs: { valueChange: "valueChange" }, features: [i0.ɵɵNgOnChangesFeature] });
-    /*@__PURE__*/ (function () {
-        i0.ɵsetClassMetadata(NgxInputMaskerDirective, [{
-                type: i0.Directive,
-                args: [{
-                        // tslint:disable-next-line:directive-selector
-                        selector: '[NgxInputMasker]'
-                    }]
-            }], function () { return [{ type: i0.ElementRef }, { type: i0.ChangeDetectorRef }]; }, { maskCode: [{
-                    type: i0.Input,
-                    args: ['NgxInputMasker']
-                }], customContainerSettings: [{
-                    type: i0.Input
-                }], customMaskSettings: [{
-                    type: i0.Input
-                }], containerClass: [{
-                    type: i0.Input
-                }], type: [{
-                    type: i0.Input
-                }], valueChange: [{
-                    type: i0.Output
-                }], onInput: [{
-                    type: i0.HostListener,
-                    args: ['input', ['$event']]
-                }] });
-    })();
+    NgxInputMaskerDirective.decorators = [
+        { type: core.Directive, args: [{
+                    // tslint:disable-next-line:directive-selector
+                    selector: '[NgxInputMasker]'
+                },] }
+    ];
+    NgxInputMaskerDirective.ctorParameters = function () { return [
+        { type: core.ElementRef },
+        { type: core.ChangeDetectorRef }
+    ]; };
+    NgxInputMaskerDirective.propDecorators = {
+        maskCode: [{ type: core.Input, args: ['NgxInputMasker',] }],
+        customContainerSettings: [{ type: core.Input }],
+        customMaskSettings: [{ type: core.Input }],
+        containerClass: [{ type: core.Input }],
+        type: [{ type: core.Input }],
+        valueChange: [{ type: core.Output }],
+        onInput: [{ type: core.HostListener, args: ['input', ['$event'],] }]
+    };
 
     var NgxInputMaskerModule = /** @class */ (function () {
         function NgxInputMaskerModule() {
         }
         return NgxInputMaskerModule;
     }());
-    NgxInputMaskerModule.ɵmod = i0.ɵɵdefineNgModule({ type: NgxInputMaskerModule });
-    NgxInputMaskerModule.ɵinj = i0.ɵɵdefineInjector({ factory: function NgxInputMaskerModule_Factory(t) { return new (t || NgxInputMaskerModule)(); }, imports: [[]] });
-    (function () { (typeof ngJitMode === "undefined" || ngJitMode) && i0.ɵɵsetNgModuleScope(NgxInputMaskerModule, { declarations: [NgxInputMaskerDirective], exports: [NgxInputMaskerDirective] }); })();
-    /*@__PURE__*/ (function () {
-        i0.ɵsetClassMetadata(NgxInputMaskerModule, [{
-                type: i0.NgModule,
-                args: [{
-                        declarations: [NgxInputMaskerDirective],
-                        imports: [],
-                        exports: [NgxInputMaskerDirective]
-                    }]
-            }], null, null);
-    })();
+    NgxInputMaskerModule.decorators = [
+        { type: core.NgModule, args: [{
+                    declarations: [NgxInputMaskerDirective],
+                    imports: [],
+                    exports: [NgxInputMaskerDirective]
+                },] }
+    ];
 
     /*
      * Public API Surface of ngx-input-masker
