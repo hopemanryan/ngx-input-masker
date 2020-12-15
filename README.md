@@ -51,4 +51,4 @@ Note: The span is outside of the angular scope
 ###  DEMO : 
 
 
-![alt text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif "Logo Title Text 1")
+![alt text](https://media.giphy.com/media/7b24q3k3f5EMC1bCaM/source.gif "Logo Title Text 1")
