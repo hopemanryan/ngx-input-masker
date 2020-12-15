@@ -1,11 +1,15 @@
 <form action="" [formGroup]="form">
   <div style="padding-left: 50px; padding-top: 100px">
-    <input type="x"  NgxInputMasker="&#10052;" formControlName="password"
+    <input [type]="inputType"  NgxInputMasker="&#10052;" formControlName="password"
            [customMaskSettings]=""
            [customContainerSettings]="{color: 'red'}">
   </div>
 
 </form>
+
+<button (click)="inputType = 'text'">Text</button>
+<button (click)="inputType = 'password'">Password</button>
+
 
 
 password: {{this.form.get('password')?.value || 'nope'}}

@@ -9,6 +9,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 export class AppComponent {
   title = 'input-masker';
   password =  '';
+  inputType = 'password';
   form = new FormGroup({
     password: new FormControl('')
   });

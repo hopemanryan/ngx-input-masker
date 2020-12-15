@@ -15,11 +15,12 @@ import {
     // tslint:disable-next-line:directive-selector
     selector: '[NgxInputMasker]'
 })
-export class NgxInputMaskerDirective implements OnInit, OnChanges{
+export class NgxInputMaskerDirective implements OnInit, OnChanges {
     @Input('NgxInputMasker') maskCode = '';
     @Input() customContainerSettings: Partial<CSSStyleDeclaration> = {};
     @Input() customMaskSettings: Partial<CSSStyleDeclaration> = {};
     @Input() containerClass?: string;
+    @Input() type = 'password';
     @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
     container: HTMLDivElement;
 
@@ -35,13 +36,26 @@ export class NgxInputMaskerDirective implements OnInit, OnChanges{
     }
 
     ngOnInit(): void {
-       this.buildBox();
+        this.buildBox();
 
     }
 
-  ngOnChanges(changes: SimpleChanges): void {
-        this.container.className = this.containerClass;
-  }
+    ngOnChanges(changes: SimpleChanges): void {
+        if (this.container) {
+            this.container.className = this.containerClass;
+            if (changes.type.currentValue === 'password') {
+                this.el.nativeElement.style.color = 'transparent';
+                this.container.style.opacity = '1';
+
+            } else {
+                this.el.nativeElement.style.color = 'black';
+                this.container.style.opacity = '0';
+
+            }
+        }
+
+    }
+
 
     updateBox(): void {
         this.container.innerHTML = '';
@@ -59,7 +73,6 @@ export class NgxInputMaskerDirective implements OnInit, OnChanges{
     }
 
 
-
     buildBox(): void {
         this.el.nativeElement.style.color = 'transparent';
         this.container = document.createElement('div');
@@ -72,12 +85,12 @@ export class NgxInputMaskerDirective implements OnInit, OnChanges{
         this.container.style.left = this.el.nativeElement.offsetLeft + 'px';
         this.container.style.display = 'flex';
         this.container.style.alignItems = 'center';
-        this.container.style.paddingLeft =  '5px';
+        this.container.style.paddingLeft = '5px';
 
-            // tslint:disable-next-line:forin
-            for (const key in this.customContainerSettings) {
-                this.container.style[key] = this.customContainerSettings[key];
-            }
+        // tslint:disable-next-line:forin
+        for (const key in this.customContainerSettings) {
+            this.container.style[key] = this.customContainerSettings[key];
+        }
 
         this.container.addEventListener('click', () => this.el.nativeElement.focus());
 
